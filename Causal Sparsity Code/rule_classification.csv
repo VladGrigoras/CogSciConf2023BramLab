@@ -1,0 +1,310 @@
+rid,true_rule,report_rule,rule_category
+37,There is exactly one purple rock.,One purple triangle which has to be with at least one other shape of a different colour and shape,1
+68,There is exactly one purple rock.,Different colour has to be used for each of the 3 objects,2
+312,There are exactly two square-shaped rocks.,It must have two squares of any colour and no more. It can have additional shapes and colours,3
+348,There are exactly two stick-shaped rocks.,2 sticks and one other shape,4
+437,There is exactly one red rock.,a single red shape,5
+683,There are exactly two green rocks.,same green colour,12
+1019,There are exactly two purple rocks.,iy has been two triangles all along so will be now  ,6
+1713,There are exactly two red rocks.,The ones I picked were closely related to the radiations I have tried to find ,0
+1919,There are exactly two square-shaped rocks.,There must be 2 red squares and any other shape as long as it is not another sqaure ,7
+2013,There is exactly one green rock.,"I think the rule is the arrangement has to include exactly one green rock, either on its own or combined with anything. Three doesn't work but I realise I have not tried two",8
+2024,There are exactly three triangle-shaped rocks.,three triangles needed,9
+2680,There is exactly one triangle-shaped rock.,It looks as if radiation is produced only with the presence of one triangle of any colour,10
+3159,There are exactly three green rocks.,Three blocks of any green shape is required to produce radiation on planet E,11
+3768,There are exactly two square-shaped rocks.,At least two squares but not three. Two squares plus any other one except square causes a reaction,3
+3981,There are exactly three stick-shaped rocks.,Using the same shape and colour x 3 times and duplicating the first one,
+4285,There is exactly one triangle-shaped rock.,"I think as long as a  triangle is placed into the mix and only one triangle combined with another shape , then success is given . The triangle can also be on its own and provide radiation ",13
+4557,There is exactly one triangle-shaped rock.,different shapes and colours,
+5161,There are exactly two stick-shaped rocks.,Two rectangle shapes must be present,15
+5296,There are exactly two purple rocks.,there must be two purple rocks ,14
+5427,There are exactly three purple rocks.,Exactly three blue shapes,16
+5483,There is exactly one red rock.,One red shape causes radiation,5
+5561,There are exactly two triangle-shaped rocks.,"You need two triangles, of any colour, either on their own or with any other shape, again of any colour",17
+5565,There is exactly one stick-shaped rock.,"I didn't test it, but i believe having only one stick of any colour with any combination of other shape will produce radiation",18
+6066,There are exactly three square-shaped rocks.,"In Planet F, three squares are required to cause radiation. They can be of different colours.",19
+6826,There are exactly three square-shaped rocks.,Because it’s a combination I’ve already tried ,0
+6868,There is exactly one purple rock.,Pattern may be that three different colours are required to produce energy.,2
+6912,There is exactly one purple rock.,Arrangements with just one purple item of any shape in it will cause radiation,20
+7586,There are exactly two purple rocks.,to follow the initial example but then try different colours and shapes until they are eliminated,0
+7918,There are exactly two red rocks.,THE RULE THAT I CAN SPOT IS THAT TWO BROWN STICK GROUP TOGEATHER WILL PRODUCE RADIATION THE OTHER PATTERNS ARE UNCLEAR TO ME AT THE MOMENT,
+8512,There are exactly three stick-shaped rocks.,the rule for planet E is 3 sticks added together in any colour combination will produce radiation when heated.,21
+8934,There are exactly three square-shaped rocks.,radiation occurs with 3 squares regardless of colour,19
+9268,There is exactly one triangle-shaped rock.,There needs to be exactly one triangle in arrangment,10
+10527,There are exactly two stick-shaped rocks.,"The rule is that there has to be 'two lines', colour does not matter. Any shape can be added with the two lines, but no more than two lines must be present.",22
+10621,There is exactly one purple rock.,a single purple works with any other shapes as long as the other objects are a different colour,20
+11059,There is exactly one stick-shaped rock.,From the tests I've done I think as long as there's a single blue stick in the arrangement then you will get radiation.,20
+11284,There are exactly two square-shaped rocks.,"For there to be excactly 2 squares in the arrangement, no more and no less",3
+12210,There is exactly one triangle-shaped rock.,Arrangements starting with a single triangular rock create radiation,24
+12416,There are exactly three stick-shaped rocks.,3 bricks has radiation,21
+12816,There is exactly one square-shaped rock.,just one sqaure,25
+12833,There is exactly one square-shaped rock.,"I think having exactly one square rock of any colour will cause radiation, regardless of the presence/absence of other rock shapes and colours",26
+13044,There is exactly one red rock.,Very hard to say what a rule would be given I only had 8 choices the oblong shapes to me seemed to produce more stars for the radiation I chose one of each colour which seems to work so I will stick with them results,27
+13495,There is exactly one square-shaped rock.,"i think either all shapes have to be present in different colours, or all of one colour square must be present as in the tests, a purple square on its own caused radiation. with that in mind, 2 purple squares should cause radiation too. ",
+13866,There are exactly three purple rocks.,"The determinant is the colour, while shape or position is not relevant. You need three rocks of the same colour.",28
+14174,There is exactly one triangle-shaped rock.,three shapes combined creates radation,29
+14577,There are exactly three green rocks.,Have to use the correct shapes in the correct arrangements to work.,0
+14582,There are exactly two triangle-shaped rocks.,2 triangles is the rule,6
+14604,There are exactly two green rocks.,Only 2 rocks have to be green to cause radiation. The shapes don't matter as long as 2 rocks are green ,30
+14849,There are exactly three purple rocks.,Three purple rocks must be combined to get a radiation on planet F.,16
+15248,There are exactly two square-shaped rocks.,they have to be two shapes regardless of the color but less or more would not work ,31
+15417,There are exactly two triangle-shaped rocks.,different shapes,32
+15437,There is exactly one green rock.,the rule is having one green shape present,33
+15626,There are exactly three stick-shaped rocks.,"i think that there must be 3 shapes and they must be sticks in order to cause radiation, the assortment of colours do not seem to matter",21
+15703,There is exactly one red rock.,Any red shape added to the arrangement but only 1 red shape,34
+15763,There are exactly two stick-shaped rocks.,it had to have 2 rectangles,15
+15772,There are exactly three square-shaped rocks.,exactly 3 square shapes present regardless of colour,19
+15932,There are exactly three stick-shaped rocks.,Must be 3 rectangle shapes of the same colour,35
+16217,There are exactly three square-shaped rocks.,There has to be three square rocks (of any colour) to create radiation,19
+16331,There is exactly one square-shaped rock.,A single square rock is needed to create radiation,25
+16493,There are exactly two stick-shaped rocks.,All blue colour but 2 sticks and one other shape,36
+16600,There are exactly two red rocks.,exactly 2 red blocks have to be present,37
+16744,There is exactly one green rock.,there need to be exactly 1 green rock of any shape on its own or with any other shapes ad colours ,38
+17019,There are exactly two square-shaped rocks.,I think to have the rocks the same distant apart,0
+17032,There are exactly three red rocks.,Colour is the deciding factor on this planet to the production of radiation.,0
+17563,There are exactly three green rocks.,Any 3 green shapes create radiation,11
+17754,There are exactly three square-shaped rocks.,i think there have to be three shapes the same and also all of the same colour,29
+18237,There are exactly two triangle-shaped rocks.,two rocks of same colour or 2 rocks of same colour with another rock of same colour but different shape,39
+18455,There is exactly one square-shaped rock.,Any square on it's own will cause radiation when heated,25
+18555,There are exactly three square-shaped rocks.,Must contain at least 2 squares either both red or  1red and 1 green,40
+18711,There are exactly three purple rocks.,"On planet D, it takes three purple rocks, of any shape, to cause radiation.  Any less, or any other colours mixed in prevent radiation.",16
+18903,There are exactly two square-shaped rocks.,"Two squares and a thin rectangle piece, any colour",41
+19264,There are exactly two stick-shaped rocks.,Rocks of different colour and shape when heated can cause radiation,0
+19318,There is exactly one square-shaped rock.,The rule is that radiation is present as long as there is one square present,25
+19335,There is exactly one purple rock.,One purple shape only,23
+19432,There are exactly three purple rocks.,3 purple shapes in matching or random shape arrangements ,16
+20084,There are exactly three purple rocks.,#NAME?,0
+20498,There are exactly two triangle-shaped rocks.,"I know that two triangles, no matter the colour, causes a reaction. A triangle and one other rock didn't cause the reaction and neither did three triangles. The other three options on the bottom row do have two triangles but I think that the introduction of a third element prevents the reaction happening. The ones without a triangle wouldn't cause radiation.",6
+20585,There are exactly three red rocks.,all three symbols myst be red but two of them must be stick shaped,42
+20686,There are exactly three triangle-shaped rocks.,3 pink triangles definitely works,
+21494,There is exactly one triangle-shaped rock.,"triangle, square and stick all same colour, but can be different colour ie pink triangle, pink square, pink stick.",
+21797,There are exactly three square-shaped rocks.,A sequence a three squares need to be selected. These can be of any colour combination.,19
+23449,There are exactly three triangle-shaped rocks.,"It's clearly triangles and threes, so I'd suspect color combos would work, as well.",9
+23645,There are exactly three red rocks.,3 pink rocks of any shape.,
+23755,There are exactly three red rocks.,All rocks are red -  the shape is not a factor.,43
+24486,There are exactly two purple rocks.,I think the purple shapes are the key . You need at least 2 purple shapes and one shape from the other colour to make a success . Not enough tests have been done to definitely commit to this but from tests have done it seems to be a reasonable guess ,44
+24781,There are exactly two red rocks.,"im thinking all red shapes and colours is right, so it goes on the colour not the shape.",
+25702,There are exactly three square-shaped rocks.,exactly three squares of any colour,19
+25833,There are exactly three square-shaped rocks.,All three squares regardless of colour,19
+25860,There are exactly two triangle-shaped rocks.,two triangles ,6
+26053,There are exactly two red rocks.,Need 2 red rectangles at least in the arrangement,45
+26551,There are exactly three stick-shaped rocks.,Same rock shape and colour when heated will cause radiation on planet D,
+27621,There are exactly three triangle-shaped rocks.,2 or more triangles only,47
+28125,There is exactly one stick-shaped rock.,Different rocks of shape and colour when heated can cause radiation,0
+28282,There are exactly two stick-shaped rocks.,Any formation with two sticks seems to work,48
+28614,There is exactly one red rock.,"A red stick rock has to be present and can be in combination with any other shaped rock and any other colour. However, radiation will not be caused if the red stick is with any other red shaped rock.",49
+28615,There is exactly one green rock.,There must be one green stone in the arrangement and it must be rectangular,50
+28912,There is exactly one square-shaped rock.,at least one red square,51
+29200,There are exactly two square-shaped rocks.,2 blocks has radiation for sure,52
+29339,There are exactly two red rocks.,I think the rule is that you must have exactly two red rocks of any shape to create radiation on Planet D,37
+29437,There are exactly two square-shaped rocks.,"Two blocks in a square seemed to be the correct combination, colour did not seem to matter.",53
+30041,There are exactly two stick-shaped rocks.,I believe two triangles is the key,6
+30068,There are exactly two green rocks.,Two blue of any shape,14
+30313,There are exactly two stick-shaped rocks.,As long as there are two stick shapes radition will occur,48
+30668,There are exactly two stick-shaped rocks.,"Two stick shaped rocks must be present to cause a radiation.
+The two stick shaped rock do not have to be the same colour.",48
+30894,There are exactly three stick-shaped rocks.,Planet E needs to have three oblong shapes of any colours to create radiation,21
+30942,There is exactly one red rock.,Radiation can only be caused on Planet E when you have either one or two identical red shapes.,54
+30955,There are exactly three purple rocks.,THE RULES FOR PLANET D SUGGEST THAT BLUE COLOURED OBJECTS GROUPED IN THREES WILL PRODUCE RADIATION THE OTHER RULES ARE UNCLEAR TO BE AT THE MOMENT,
+31207,There are exactly two square-shaped rocks.,"at least one green square, or at least two squares of other colours",56
+32361,There are exactly two green rocks.,As long as there are at least two green squares in the arrangement then it will be successful,57
+32918,There are exactly two triangle-shaped rocks.,Exactly 2 triangle rocks with no other rocks present. ,6
+33023,There is exactly one green rock.,Radiation occurs when there is one green object and no others,33
+33048,There is exactly one square-shaped rock.,"The rule is one square, any colour. ",25
+34712,There are exactly two red rocks.,Two identical RED shapes. No other shapes or colours can be present.,37
+34964,There is exactly one square-shaped rock.,The radiation has to contain a square but it can only be one colour and the other shapes cant be red,58
+35098,There is exactly one square-shaped rock.,Presence of only one square rock of any colour with any combination of triangles and long rocks.,26
+35302,There are exactly two square-shaped rocks.,"I think that two squares no matter their colour will always create radiation (in case there are only 2 shapes in the arrangement). I haven't tested two squares and 1 additional different shape, so my conclusion is that the arrangement should have only 2 squares of the same or different colours for radiation to occur.",53
+35481,There is exactly one red rock.,Triangles were a significant factor and the colour,0
+35521,There are exactly three square-shaped rocks.,"Exactly three squares, of any colour combination, causes radiation",19
+35657,There are exactly three purple rocks.,"I think the rule here is to arrange exactly three purple rocks. The rocks themselves can be any shape, but they have to be purple, and there must be three of them.",16
+35778,There are exactly two stick-shaped rocks.,2 sticks of the same colour did it.,59
+36083,There are exactly three square-shaped rocks.,"From the eight tests, I have determined that, to cause radiation on Planet E, three squared rocks must be used. These can be of any colour. Only square rocks can be used. Rectangles will not cause radiation, nor will they cause radiation combined with squared rocks. I did not test triangles, but given the tests, I assume that they do not cause radiation and only square rocks are good to cause radiation on Planet E.",19
+36287,There are exactly two triangle-shaped rocks.,"The rule to set up arrangements to cause radiation on Planet D is to have two triangle shapes of either the same colour or different colours. The shape must be triangle, and there cannot be more than two rocks.",6
+36894,There is exactly one stick-shaped rock.,Either one shape alone but must be purple can be radioactive or 3 different shapes of the same colour purple are radioactive.,60
+37198,There are exactly three purple rocks.,Three purple shapes causes radiation,16
+37477,There are exactly three square-shaped rocks.,that they all have to be the same shape and possibly the same colour,
+37529,There are exactly three red rocks.,three same red objects,61
+38300,There are exactly two stick-shaped rocks.,"Based on my own tests, seeing that the combination requires two rectangles so selected accordingly. Started to consider whether needs at least one rectangle (blue) to be active. ",48
+38490,There are exactly two purple rocks.,Must be only purple squares,62
+38550,There is exactly one square-shaped rock.,because im sure it will work,0
+38903,There are exactly three square-shaped rocks.,radiation is present if there are 3 squares,19
+39159,There are exactly three red rocks.,3 red shapes are required to cause radiation.,63
+40030,There are exactly three red rocks.,"in radiation D, all shapes have to be red, think that is the rule for planet d",43
+40413,There are exactly two green rocks.,Exactly two green shapes.,30
+40556,There are exactly two stick-shaped rocks.,There has to be two rectangles and it doesn't matter what colours they are. It also works if there is another rock that is square or triangular but when there are three rectangles it does not work,22
+40727,There is exactly one red rock.,1 and only 1 red causes radiation - but can have >= 0 OTHER colours and/or SHAPES,34
+41278,There is exactly one stick-shaped rock.,As long as there is at least one shape regardless of the color it should work ,64
+41978,There are exactly three green rocks.,3 greens was definitely radioactive.,11
+42028,There are exactly three green rocks.,3 green shapes,11
+42058,There are exactly three green rocks.,I think the shape does not matter and as long as the green rocks are used then success in obtaining radiation from this rule will occur ,12
+42376,There is exactly one triangle-shaped rock.,One triangle with other shapes,24
+42617,There is exactly one purple rock.,"exactly one purple rock has to be present, regardless of shape",23
+42724,There are exactly two green rocks.,Each arrangement must contain two green oblong shapes alongside other shapes,65
+42866,There are exactly two square-shaped rocks.,"i think the rules are: only square rocks, two at a time, regardless of colour of rock.",53
+43037,There is exactly one stick-shaped rock.,For there to be only 1 rectangle in the arrangement,18
+43043,There are exactly three green rocks.,The rule is any three green rocks.,11
+43508,There are exactly two square-shaped rocks.,2 green square rocks,57
+43718,There are exactly three red rocks.,must use 1  red triangle and two red shapes which can be the same or combinations,66
+44074,There is exactly one triangle-shaped rock.,start with a green triangle,67
+44346,There are exactly three square-shaped rocks.,Arrangements with only square shaped rocks create radiation,68
+44852,There are exactly two green rocks.,I did not test with two light blue colour shapes and another colour shape for radiation but as it did not work with three light blue shapes I thought radiation may only work with two light blue shapes. I found on test two the same shapes in different colours didn't cause radiation so I thought maybe the same shape in the same colour twice would not cause radiation either.,
+44933,There is exactly one green rock.,"I think the rule is as long as the green triangle is there and the other shapes are of different colours than green, then it would work",69
+45147,There are exactly three red rocks.,"i think the rule is that red shapes cause reactions, i thought that also the same shapes are a contributing factor, so i chose two more tests to test my second hypothesis",
+45225,There are exactly three purple rocks.,The rule is that 3 purple objects are required,16
+46097,There are exactly three square-shaped rocks.,I think it could be that the three different shapes of blue may cause the radiation.,16
+46747,There is exactly one square-shaped rock.,WHAT I HAVE LEARNED IS THAT A SINGLE SQUARE WILL PRODUCE RADIATION NO MATTER WHAT COLOUR IT IS THE REST OF THE RULES TO PRODUCE RADIATION ARE UNCLEAR TO ME,25
+46848,There are exactly two square-shaped rocks.,Shape and quantity more than colour produce radiation,0
+47150,There are exactly two square-shaped rocks.,As long as the arrangement has two cubes it will work,3
+47797,There are exactly three stick-shaped rocks.,There needs to be three rectangles present. Colour doesn't matter.,21
+47965,There are exactly two green rocks.,the rule for this planet is two green triangles only,71
+48830,There are exactly three purple rocks.,All three shapes must be blue,16
+48865,There is exactly one square-shaped rock.,"sticking with one square, have enough evidence it produces radiation",25
+49100,There are exactly two square-shaped rocks.,2 squares have to be present - they can be any colour and can be a combination of any 2 colours. They don't have to be present with any other shapes but will still cause radiation when present with one other shape (either stick or triangle) of any colour,3
+49438,There is exactly one purple rock.,Planet D needs to be 1 purple square to cause radiation,72
+49544,There are exactly three stick-shaped rocks.,They must be 3 rectangles of the same colour,35
+49569,There are exactly three purple rocks.,All the rocks on planet d have to be purple. It does not matter what shape they are ,73
+50036,There is exactly one red rock.,I think the rule for Planet F is that there needs to be exactly ONE red rock (of any shape) present in the arrangement.,34
+50294,There are exactly three green rocks.,as all was same and it had the three green triangles ,74
+50523,There are exactly three green rocks.,all 3 of the rocks must be green but it does not matter what shape they are,11
+50690,There is exactly one square-shaped rock.,Either one square of one colour or full colour set,75
+50804,There is exactly one purple rock.,one shape of purple ,23
+51478,There is exactly one triangle-shaped rock.,Exactly one triangle rock,10
+51501,There is exactly one square-shaped rock.,"A purple square in combination with either one other or two other shapes (neither of the one/two other shapes should be a square) of either purple, green or red colour  will create radiation",76
+51639,There is exactly one green rock.,The need for any shape with the colour light blue is required for radiation. This also needs to joined with another shape of any different colour to cause radiation. I suspect two light blue will not cause radiation.,77
+51836,There is exactly one red rock.,If the only red item is square,79
+52051,There are exactly three red rocks.,I think the rule is that you must have 3 red rocks of any shape to create radiation,63
+52154,There are exactly three red rocks.,I think that having all 3 pink rocks cause radiation,63
+52458,There is exactly one green rock.,Single shape only green colour,33
+52876,There are exactly two red rocks.,i think you must have 2 red rocks no more and no less. the thrid rock can be either green or purple and any shape ,79
+53185,There are exactly two stick-shaped rocks.,Exactly two sticks of any colour,48
+53232,There are exactly three purple rocks.,The rule is 3 rocks of the same colour but not the same shape. ,28
+53737,There are exactly three green rocks.,Three blue pieces will cause radiation when heated.,16
+54584,There are exactly two stick-shaped rocks.,"Only two rectangle shapes, irrespective of the colour",15
+55232,There is exactly one red rock.,"I think it must include a red triangle, or it could include any coloured triangle",80
+55399,There are exactly three purple rocks.,"I think the rocks just have to be purple, shape or repetition does not matter. I realised that I haven't tried mine purple with other colours though so that would still be interesting to see",81
+56157,There are exactly three purple rocks.,The purple color causes the radiation...so any three shapes of colour purple will cause the radiation,16
+57188,There are exactly three square-shaped rocks.,All need to be squares of the same colour,82
+57286,There is exactly one stick-shaped rock.,Exactly one stick shaped rock.,83
+57592,There is exactly one red rock.,closest to what i know works,0
+57857,There are exactly two square-shaped rocks.,"Definitely has to include two squares of any colour, I've realised I haven't tried to add a third rock though as it worked without",53
+58374,There are exactly two stick-shaped rocks.,there has to be 2 stick shaped rocks,15
+58449,There is exactly one stick-shaped rock.,I think it only works with a minimum of one stick and no other shapes and or colours.,83
+58568,There are exactly two red rocks.,- Needs to have 2 red square rocks in the combination to cause radiation ,7
+58628,There is exactly one purple rock.,because it has been the blue square all along and so has to be this time too,72
+58657,There are exactly three green rocks.,Must use the blue ones ,0
+59255,There are exactly three stick-shaped rocks.,Only 3 sticks will work. No matter the colour. ,21
+59966,There are exactly three green rocks.,same shapes of green color,84
+60194,There are exactly three purple rocks.,For there to be 3 purples shapes in the arrangement,16
+60291,There are exactly two green rocks.,"The rocks have to be green. If there are more than three rocks, then at least two of them have to be the same shape.",85
+60771,There is exactly one purple rock.,One purple shape regardless of shape. The same shape providing all are different colours.,86
+60865,There is exactly one square-shaped rock.,"That there needs to be only 1 purple square. There can be either of the 2 other purple shapes, either the same or different. 3 maximum but only 1 purple square. No other colours",88
+61235,There is exactly one purple rock.,At least one purple rock must be present for a radiation to occur.,23
+62068,There are exactly two purple rocks.,"Each have two purple triangles. I think that maybe, you just need two rocks of the same shape and colour and the final one does not matter as much.",89
+63218,There is exactly one red rock.,single brown block,5
+63365,There is exactly one purple rock.,there has to be maximum one blue shape and the last two shapes can be any combination as long as not blue,20
+63602,There are exactly three purple rocks.,because they need at least one shape of that color,0
+63985,There are exactly two square-shaped rocks.,"Square regardless of colour is one rule. I didn't find other rules, so not sure if other rules exist.",68
+64248,There are exactly two stick-shaped rocks.,Must have at least two rectangles,48
+64636,There is exactly one green rock.,One green shape causes radiation.,33
+64772,There is exactly one purple rock.,"From the tests, I have determined that the arrangement to create radiation on Planet F must be of one purple rock only.",23
+65872,There is exactly one green rock.,"The rule is you need one green stick on its own, or one green stick with 1 or 2 other sticks of different colours",90
+65876,There are exactly two stick-shaped rocks.,It seems that having 2 sticks present cause radiation,15
+66625,There are exactly three square-shaped rocks.,the rule was that there had to be 3 square shapes,19
+66760,There are exactly two red rocks.,2 red shapes the same,91
+67200,There are exactly three triangle-shaped rocks.,Based on my tests I determined the arrangement rule on Planet D is there must be 3 triangle-shaped rocks to cause radiation,9
+67531,There are exactly three purple rocks.,All blue but any sequence of shapes,73
+68141,There are exactly two red rocks.,Maybe because it’s the same shape and colour ,46
+68730,There is exactly one red rock.,"It appears that the red rectangular rock is a catalyst for the radiation (as seen through my own tests). I've therefore concluded that the red rectangular is required to produce radiation, influencing my selection here.",92
+68794,There are exactly three triangle-shaped rocks.,Any colour combination of 3 triangles.  No other shape will create radiation,9
+69397,There are exactly two purple rocks.,"There must be at least 2 blue stones, but all 3 cannot be the same ",93
+69694,There is exactly one stick-shaped rock.,I think rocks of the same shape and colour produce radiation and that colour combinations inhibit radiation,46
+69967,There are exactly two red rocks.,No idea of the rule.,0
+70069,There are exactly three triangle-shaped rocks.,"it is the only option I tested, so I am sure of my answer",0
+70778,There are exactly two stick-shaped rocks.,Exactly 2 stick shapes are needed to cause radiation. ,48
+70814,There are exactly two red rocks.,"Exactly 2 red colored rocks must be in the arrangement. They can be any shapes but there cannot be more than or less than 2, and they can be paired with any shaped third rock as long as it is not a third red",79
+71281,There are exactly three square-shaped rocks.,The blue/purple rocks seem to be a main driver for the test (as they are present in a majority of them). Less success around the green rocks (as there are fewer. There seems to be more success with the introduction of a mixture of the blue/purple rocks and the red blocks in certain sequences.,94
+72059,There are exactly two red rocks.,At least two red triangles.,95
+72881,There is exactly one green rock.,Any arrangement that contains one and only one green rock.,38
+73569,There are exactly three green rocks.,All three rocks must be green,11
+73573,There is exactly one stick-shaped rock.,I think the rule is that there has to be exactly one stick shape present. ,83
+73671,There are exactly three purple rocks.,Three purple,16
+74431,There are exactly three purple rocks.,I think it must include some sort of purple,
+74960,There are exactly three square-shaped rocks.,"Arrange 3 squares, colour doesn't matter",
+74997,There are exactly three stick-shaped rocks.,There has to be three stick shaped rocks but they can be of any colour combination. ,
+75276,There are exactly three green rocks.,3 green shapes causes radiation,
+75645,There are exactly three stick-shaped rocks.,"Three sticks, of any mix of colours",
+75686,There are exactly three square-shaped rocks.,All blocks the same,
+76468,There are exactly two triangle-shaped rocks.,need to use 2 triangles,
+76488,There are exactly three square-shaped rocks.,All of the rocks need to be the same colour and square.,
+76889,There is exactly one red rock.,"Based on my tests I determined the rule for this planet is that the arrangement must contain exactly one red colored rock, at least one but no more than one and it can be paired with any non-red rocks and they can be any shape",
+76977,There is exactly one square-shaped rock.,"Planet F only needs one square shape to cause radiation. The colour of the square does not matter, just the presence of one square in every sequence",
+77001,There are exactly three square-shaped rocks.,Needs to have 3 square rocks. Colour doesn't seem to have an impact but can't have any other shape or amount.,
+77193,There are exactly two square-shaped rocks.,"this set up worked for me every time, so that is my choice.",
+77713,There are exactly two stick-shaped rocks.,having two stick shape stones makes radiation happen,
+77720,There are exactly three stick-shaped rocks.,"I think as long as there are three long thin rectangles it works, regardless of their colour",
+77910,There are exactly two purple rocks.,Two purple shapes (ONLY) ,
+78119,There are exactly three green rocks.,Any 3 shapes that are all green. No other colours and no less than 3 in total.,
+78748,There are exactly two stick-shaped rocks.,Any thing with 2 sticks of any colour will cause radiation,
+79448,There are exactly two stick-shaped rocks.,Only two rectangle shapes can react and create radiation. They can be random in colour but it must be two and of the shape rectangle,
+79491,There is exactly one stick-shaped rock.,Because they are similar to the ones that did ,
+79542,There are exactly two red rocks.,two orange shapes,
+79678,There is exactly one stick-shaped rock.,"- There needs to be present a red square rock or a purple triangle rock or a green stick rock
+- There needs to be present at least 1 of the above in the combination
+- They can combine with other different rocks in shape or colour",
+80134,There are exactly two triangle-shaped rocks.,"need to be 2 triangles, although did not test whether 2 of the same shape different colour would work",
+80258,There is exactly one triangle-shaped rock.,I believe that the two triangles will make the radiation,
+80812,There are exactly three square-shaped rocks.,In does not matter if we use different shapes but there must be three squares with a dark blue involved for radiation. In test 3 when I eliminated the dark blue there was no radiation so I will presume this is required. ,
+81089,There are exactly two triangle-shaped rocks.,It seemed to only work with triangles,
+81279,There are exactly three square-shaped rocks.,I'm not sure on this one - I did one of my tests wrong I think,
+81347,There are exactly two red rocks.,"Anything with two red rocks will produce radiation.
+",
+82123,There is exactly one square-shaped rock.,Squares of like coloration produce radiation.,
+82990,There are exactly three purple rocks.,The purple was definitely the colour to produce radiation I was undecided on the best combination and I thought the three triangles provided the best combination but it could so easily have been the mixture of all three he's just trying to remember what I saw,
+83290,There is exactly one square-shaped rock.,"Matching colours = radiation regardless of the shape.
+Once colours are mixed, the radiation is cancelled out.",
+83789,There are exactly two triangle-shaped rocks.,Any two triangles will cause radiation,
+84745,There is exactly one green rock.,Single green shapes,
+84812,There are exactly two red rocks.,The only results that created radiation was the experiment of 2 red rectangles so that's got to be my choice no other choice than that,
+84916,There is exactly one triangle-shaped rock.,one triangle of any colour creates radiation,
+85179,There is exactly one purple rock.,The rule is to try different variations of the shapes and colours to see if these cause radiation.  There is numerous variations to try so it could be a long process.,
+85732,There are exactly three triangle-shaped rocks.,at least one red triangle has to be present and at least 3 shapes,
+85745,There is exactly one triangle-shaped rock.,One red triangle only causes radiation (can be in combination of 2 other shapes) ,
+85811,There is exactly one square-shaped rock.,If a square is there. It seems to be radioactive. Unless there is more than 1 square.,
+86814,There is exactly one purple rock.,One purple square only with any shape of another colour.,
+87173,There are exactly two stick-shaped rocks.,I picked the red triangle as that was one of my last tests.  I picked the 2 green sticks as that was the example which was correct and thought that it may work for the three green sticks too.,
+88066,There is exactly one red rock.,the arrangement needs to have a pink shape either on it's own or with other shapes that can be different colours. Pink musr always be present,
+89383,There is exactly one green rock.,"i didn't realise you could pick 2 same shapes of same colour, so im saying these as it seems to be in the same sequence",
+89490,There are exactly three green rocks.,all rocks must be green but any shape ,
+89954,There is exactly one triangle-shaped rock.,"thwere must be a red rock, but not a square on its own ",
+90145,There are exactly three square-shaped rocks.,"it looks like as long as it has three squares, it doesn't matter what colour they are",
+90527,There is exactly one stick-shaped rock.,i think the rule for planet F is that any combination of shape and colour can be added as long as there is 1 stick present. the colour of the stick is irrelevant but there can not be any more than 1 present in any given combination.,
+90950,There is exactly one triangle-shaped rock.,I think the rule is strictly one purple triangle,
+91096,There is exactly one square-shaped rock.,A cube in any colour,
+91100,There is exactly one triangle-shaped rock.,"the rules are, i believe, a single triangle of any colour will cause a reaction.
+also, three rocks, triangle, square and stick, possibly of any colour arrangement (but i am not certain of that) will cause a reaction. i think if they are the same colour they will cause a reaction, but the last provided test will tell me if using different colours also creates a reaction.",
+91132,There are exactly two red rocks.,Any two shapes that are red,
+91213,There are exactly two purple rocks.,2 shapes of purple colour (no matter the shape) cause radiation,
+91371,There is exactly one green rock.,Must have only one blue shape,
+91805,There are exactly two triangle-shaped rocks.,as long as you placed the same shapes upright spacing doesn't seem important,
+92131,There are exactly two square-shaped rocks.,exactly 2 square rocks,
+93160,There are exactly three triangle-shaped rocks.,same colour and shape,
+93465,There is exactly one triangle-shaped rock.,I think to have a rock on its own ,
+94124,There are exactly two triangle-shaped rocks.,Two triangular rocks must be present to create radiation ,
+94453,There are exactly three triangle-shaped rocks.,exactly 3 triangle rocks,
+94867,There are exactly two red rocks.,The rule is that there must be exactly 2 red shapes present in the arrangement. ,
+94957,There are exactly two purple rocks.,Two rocks of the same colour produce radiation,
+95212,There are exactly two triangle-shaped rocks.,exactly two traingles of any colour but no more than two,
+95827,There are exactly three square-shaped rocks.,I think this one seems the one that caused radiation,
+96025,There are exactly two square-shaped rocks.,Only two squares,
+96035,There are exactly two red rocks.,"I think the rule for Planet E is that radiation can be created by arranging exactly TWO red triangle-shaped rocks. A third rock can also be present in the arrangement, but it cannot be a red shape of any sort.",
+96483,There are exactly three red rocks.,"All shapes have to match in colour, specifically pink",
+96581,There is exactly one purple rock.,I think it is purple square with one other shape of a different colour,
+96897,There are exactly two triangle-shaped rocks.,i think it has to be triangles and they can be either the same colour or different colours but there has to be only 2.,
+97020,There is exactly one red rock.,the red triangle radiates when alone or with another triangle that is a different colour. It does not work with same coloured triangles or other shapes,
+97825,There are exactly two green rocks.,"i think the rule for planet D is that you need two green rocks of the same shape added together. for example, you can have 2 squares together, or 2 triangles or 2 sticks together and they must all be green. however, you cannot mix the shapes, ie. you cannot have 1 green square and 1 green triangle.",
+98448,There is exactly one square-shaped rock.,I know that a single square causes radiation but two definitely doesn't. Unsure about the other arrangements as 3 rocks of the same colour but different shapes also does but this isn't an option here.,
+98575,There are exactly two square-shaped rocks.,"Use two reddish squares only in combination with a rectangle and triangle, colour does not matter ",
+99174,There are exactly three triangle-shaped rocks.,I think the rule is to have 3 triangles in the arrangement. It does not matter if the colours within the arrangement are the same. ,
+99215,There are exactly three triangle-shaped rocks.,"Three triangles, regardless of colour will cause radiation. Addition of any other shape does not cause radition.",9
+99394,There is exactly one square-shaped rock.,onesquare and two sticks. However would need to see if 2 of other shapes would work if you used 1 square to rule out other combinations,
