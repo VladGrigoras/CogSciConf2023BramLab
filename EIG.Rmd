@@ -60,12 +60,23 @@ tests$colour <- as.numeric(tests$colour)
 ```{r}
 #Essentially all features are number coded as the rule space above and this function helps us extract the scene from the multiple test rows
 
+#Rember that each feature is coded as mentioned previously and I am jumping around with regards to object number as in the hypothesis encoding
+
+#By feature I mean a certain colour or a certain shape
+
 extract = function(feature,state){
-  if(state[feature] == 1){
+  #If we have already observed an object with this feature, then move to encode the presence of 2 objects with this feature
+  if(state[feature] == 1){ 
     state[feature] <- 0
     state[feature + 1] <- 1 
   } 
+  
+  #Otherwise, if this is the first time we are observing this feature, we encode the presence of 1 object with this feature
+  
   else if((state[feature] == 0) & (state[feature + 1] == 0)) state[feature] <- 1
+  
+  #Otherwise, it must be that it is the third time we observe this feature, so we encode the presence of 3 objects with this feature
+  
   else{
     state[feature + 2] <- 1
     state[feature + 1] <- 0 
@@ -124,6 +135,9 @@ selfreport$outcome[selfreport$outcome == FALSE] <- 0
 
 ```
 
+prior is $$P(H)$$
+
+prior_entropy is $$SE(H)$$
 
 ```{r}
 #This is essentially identical to the sparse implementation in "compute_entropy.R" for the "Children's failure to control variables may reflect adaptive decision making" paper by Jones et al., 2020
@@ -139,7 +153,7 @@ for (i in 1:nrow(selfreport))
   } 
   else {
     #Subsequently the prior is the previous test's posterior
-    prior<-c(selfreport$p1[i], selfreport$p2[i], selfreport$p3[i], selfreport$p4[i], selfreport$p5[i], selfreport$p6[i], selfreport$p7[i], selfreport$p8[i], selfreport$p9[i], selfreport$p10[i], selfreport$p11[i], selfreport$p12[i], selfreport$p13[i], selfreport$p14[i], selfreport$p15[i], selfreport$p16[i], selfreport$p17[i], selfreport$p18[i])
+    prior<-c(selfreport$p1[i-1], selfreport$p2[i-1], selfreport$p3[i-1], selfreport$p4[i-1], selfreport$p5[i-1], selfreport$p6[i-1], selfreport$p7[i-1], selfreport$p8[i-1], selfreport$p9[i-1], selfreport$p10[i-1], selfreport$p11[i-1], selfreport$p12[i-1], selfreport$p13[i-1], selfreport$p14[i-1], selfreport$p15[i-1], selfreport$p16[i-1], selfreport$p17[i-1], selfreport$p18[i-1])
     prior_entropy<-selfreport$entropy[i-1]
   }
   
@@ -153,7 +167,7 @@ for (i in 1:nrow(selfreport))
     marg<-sum(prior[zendo_state==0], na.rm = T)#The likelihood of the actual outcome
   }  
   
-  post=post.un/sum(post.un, na.rm = T)
+  post<-post.un/sum(post.un, na.rm = T)
   post_alt<-post_alt.un/sum(post_alt.un, na.rm = T)
   
   selfreport$prior1[i]<-prior[1]
@@ -196,14 +210,31 @@ for (i in 1:nrow(selfreport))
   
   selfreport$prior_entropy[i]<-prior_entropy
   
-  selfreport$entropy[i] = -sum(post * log2(post), na.rm=T) #SE(H)
+  selfreport$entropy[i] = -sum(post * log2(post), na.rm=T) #SE(H | s, o)
   
   selfreport$information[i] = prior_entropy - selfreport$entropy[i]
   
   ent_alt<- -sum(post_alt * log2(post_alt), na.rm=T)
   
-  selfreport$eig[i]<-marg*selfreport$information[i] + (1-marg)*(prior_entropy - ent_alt)
+  selfreport$eig1[i] <- prior_entropy - marg*(selfreport$entropy[i]) - (1-marg) * ent_alt
   
-  #I left out the eig_max and guessing bit, as this is still incomplete :/ 
+  #
+  n_left<-sum(prior!=0)
+  if (n_left%in%c(6,4,2))
+  {
+    selfreport$eigmax[i]<-1
+  } else if (n_left==5)
+  {
+    selfreport$eigmax[i]<-(-log2(1/5) - -log2(1/2))*2/5 +  (-log2(1/5) - -log2(1/3))*3/5#.97
+  } else if (n_left==3)
+  {
+    selfreport$eigmax[i]<-(-log2(1/3) - 0)*1/3 +  (-log2(1/3) - -log2(1/2))*2/3#.91
+  } else {
+    selfreport$eigmax[i]<-0
+  }
+  selfreport$guess_p[i] = post[selfreport$guess[i]]
+  selfreport$max_p[i]<-max(post)
+  selfreport$positive_outcome_p[i] = marg[1]
+  
 }
 ```
