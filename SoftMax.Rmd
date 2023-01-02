@@ -1,0 +1,24 @@
+---
+title: "Softmax"
+author: "VladG"
+date: "2023-01-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+load("./zendo.rdata")
+```
+
+```{r}
+#57 possible tests to go from, 1 locked in 
+
+#Create a matrix and compute eig on each test?
+  #=> will lead to insanely large dataframe, but to be expected
+  #=> hmm should be doable like this 
+```
+

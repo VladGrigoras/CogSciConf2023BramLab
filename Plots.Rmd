@@ -1,0 +1,232 @@
+---
+title: "EIG Zendo - Plots"
+author: "VladG"
+date: '2022-12-08'
+output: html_document
+---
+
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+
+load("./zendo.rdata")
+```
+
+
+```{r}
+#Building the mean/sd data frame 
+
+cert <- c()
+rule <- c()
+cond <- c()
+reach <- c()
+ruletype <- c()
+rulecount <- c()
+
+j = 0 #counter for the test number within a given trial
+i = 1 
+
+while(i <= nrow(selfreport)){
+  j = j + 1
+
+  #If this is the test in which certainty has been reached, append the information to our new dataframe and jump to the next trial
+  
+  if(selfreport$prior_entropy[i] == 0){ 
+    cert <- append(cert, selfreport$test[i])            #What test they reached certainty on
+    rule <- append(rule, selfreport$rule_nr[i])         #What the rule number is
+    ruletype <- append(ruletype, selfreport$rule_re[i]) #What the rule type is
+    cond <- append(cond, selfreport$condition[i])       #What the condition is
+    reach <- append(reach, "y")                         #Whether they did finally reach certainty
+    
+    #What the number of objects in the rule is
+    if(selfreport$rule_nr[i] %in% c(1,4,7,10,13,16)) rulecount <- append(rulecount, 1)
+    else if(selfreport$rule_nr[i] %in% c(2,5,8,11,14,17)) rulecount <- append(rulecount, 2)
+    else if(selfreport$rule_nr[i] %in% c(3,6,9,12,15,18)) rulecount <- append(rulecount, 3)
+
+    i <- i + 8 - j 
+    j <- 0
+  }
+  
+  #Otherwise, if we reach the end of the trial without ever reaching certainty, do this 
+  #(I assumed assigning 8, but perhaps we will find a better solution later)
+  
+  else if(j == 8){
+    cert <- append(cert, 9)
+    rule <- append(rule, selfreport$rule_nr[i])
+    ruletype <- append(ruletype, selfreport$rule_re[i])
+    cond <- append(cond, selfreport$condition[i])
+    reach <- append(reach, "n")
+    
+    if(selfreport$rule_nr[i] %in% c(1,4,7,10,13,16)) rulecount <- append(rulecount, 1)
+    else if(selfreport$rule_nr[i] %in% c(2,5,8,11,14,17)) rulecount <- append(rulecount, 2)
+    else if(selfreport$rule_nr[i] %in% c(3,6,9,12,15,18)) rulecount <- append(rulecount, 3)
+    
+    j <- 0
+  }
+  
+  i <- i + 1
+}
+cert <- cert - 1
+df <- data.frame(cert, rule, cond, reach, ruletype, rulecount)
+df$rulecount <- as.factor(df$rulecount)
+df$ruletype <- as.factor(df$ruletype)
+```
+
+```{r}
+#Basic Count barplots
+
+ggplot(data = df, aes(x = cond))+
+  geom_bar(aes(fill = reach), position = "dodge", color = "black")+
+  scale_fill_manual(values = c("black", "white"))+
+  #stat_compare_means(comparisons = c())+
+  labs(title = "Effect of Condition on Reaching Certainty" , x = "Condition", y = "Nr. of Trials That Reached Certainty")+
+  theme_minimal()+
+  theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"), panel.grid.major.x = element_blank())+
+  theme(axis.title = element_text(size = 15))
+```
+
+```{r}
+#Mean test number to reach certainty barplots for each condition
+ggplot(data = df, aes(x = cond, y = cert, fill = cond))+
+  stat_summary(fun.data=mean_sdl, geom="bar", color = "black", position = position_dodge(width = 0.95))+
+  stat_summary(fun.data=mean_cl_boot, geom = "errorbar", color = "black", position = position_dodge(width = 0.95), width = 0.3)+
+  #scale_fill_manual(values = c("black", "gray", "white"))+
+  labs(title = "Effect of Condition on Reaching Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty")+
+  theme_minimal()+
+  theme(axis.title = element_text(size = 15), legend.position = "none")
+```
+
+```{r}
+#Mean Barplots to reach certainty for each rule
+ggplot(data = df, aes(x = reorder(rule, +cert), y = cert))+
+  stat_summary(fun.data=mean_sdl, geom="bar", color = "black", position = position_dodge(width = 0.95))+
+  stat_summary(fun.data=mean_cl_boot, geom = "errorbar", color = "gray", position = position_dodge(width = 0.95), width = 0.3)+
+  scale_fill_manual(values = c("#000000", "#ffffff"))+
+  labs(title = "Effect of Rule on Reaching Certainty" , x = "Rule", y = "Nr. of Trials to Reach Certainty")+
+  theme_minimal()+
+  theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"),
+    panel.grid.major.x = element_blank())+
+  theme(axis.title = element_text(size = 15))
+```
+
+### Plots focused around interactions between the ruletype and condition
+
+```{r}
+df_stats <- df %>% 
+    group_by(cond, ruletype) %>%
+    summarise(
+        Avg_Cert = mean(cert), 
+        SE = sd(cert) / sqrt(n())
+    )
+
+ggplot(data = df_stats, aes(x = cond, y = Avg_Cert, colour = ruletype)) +
+    geom_point(size = 3) +
+    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_line(aes(x = as.numeric(cond)), size = 1.2)+
+    labs(title = "Interaction Between Rule Type, Condition and Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty", colour = "Type of Rule")+
+    theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"),
+    panel.grid.major.x = element_blank())
+```
+
+```{r}
+df_stats1 <- df %>% 
+    group_by(cond, rulecount) %>%
+    summarise(
+        Avg_Cert = mean(cert), 
+        SE = sd(cert) / sqrt(n())
+    )
+
+ggplot(data = df_stats1, aes(x = cond, y = Avg_Cert, colour = rulecount)) +
+    geom_point(size = 3) +
+    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_line(aes(x = as.numeric(cond)), size = 1.2)+
+    labs(title = "Interaction Between Rock Number in a Rule, Condition and Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty", colour = "Nr. of Rocks in the Rule")+
+    theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"), 
+    panel.grid.major.x = element_blank())
+```
+
+```{r}
+df_stats2<- df %>% 
+    group_by(ruletype, rulecount) %>%
+    summarise(
+        Avg_Cert = mean(cert), 
+        SE = sd(cert) / sqrt(n())
+    )
+
+ggplot(data = df_stats2, aes(x = rulecount, y = Avg_Cert, colour = ruletype)) +
+    geom_point(size = 3) +
+    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_line(aes(x = as.numeric(rulecount)), size = 1.2)+
+    labs(title = "Interaction Between Rock Number in a Rule, Condition and Certainty" , x = "Nr. of Rocks in the Rule", y = "Nr. of Trials to Reach Certainty", colour = "Rule Type")+
+    theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"), 
+    panel.grid.major.x = element_blank())
+```
+
+```{r}
+df_stats3 <- df %>% 
+    group_by(cond, rule) %>%
+    summarise(
+        Avg_Cert = mean(cert), 
+        SE = sd(cert) / sqrt(n())
+    )
+ggplot(data = df_stats3, aes(x = cond, y = Avg_Cert, colour = rule)) +
+    geom_point(size = 3) +
+    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE)) + 
+    geom_line(aes(x = as.numeric(cond)), size = 1.2)+
+    labs(title = "Interaction Between Rule Type, Condition and Certainty" , x = "Rule Type", y = "Nr. of Trials to Reach Certainty")+
+    theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"),
+    panel.grid.major.x = element_blank())
+```
+
+
+```{r}
+#Timegrowth of certainty proportion
+
+#First, create a dummy dataframe with the percentage of certaint trials for each number of tests bin 
+df$cert <- as.factor(df$cert)
+summary(df$cert)
+
+df %>% count(cond,cert)
+
+#All conditions
+c <- c(0,189,58,25,11,2,3,15)
+round(c/sum(c),3) * 100
+
+#Condition 1
+c <- c(0,65,23,9,4,1,1,8)
+round(c/sum(c),3) * 100
+
+#Condition 2
+c <- c(0,65,16,7,5,1,2,6)
+round(c/sum(c),3) * 100
+
+#Condition 3
+c <- c(0,59,19,9,2,0,0,1)
+round(c/sum(c),3) * 100
+
+d <- c(0, 62.4, 81.5, 89.8, 93.4, 94.1, 95.1, 
+       0, 58.6, 79.3, 87.4, 91, 91.9, 92.8, 
+       0, 63.7, 79.4, 86.3, 91.2, 92.2, 94.2, 
+       0, 65.6, 86.7, 96.7, 98.9, 98.9, 98.9)
+
+condition <- c("all","all", "all", "all", "all", "all", "all", "1", "1","1","1","1","1","1","2","2","2","2","2","2","2","3","3","3","3","3","3","3")
+test <- c(1:7, 1:7, 1:7, 1:7)
+
+dum <- data.frame(test, d, condition)
+
+#Note, 5% of all trials never reached certainty 
+```
+
+```{r}
+ggplot(dum, aes(x = test, y = d, color = condition))+
+  geom_point()+
+  geom_line(size = 1.2)+
+  labs(title = "Perecentage of Trials Reaching Certainty Over Number of Tests", y = "Percentage of Trials that Have Reached Certainty")+
+  scale_x_continuous(breaks = c(1:7), name = "Test Number")
+```

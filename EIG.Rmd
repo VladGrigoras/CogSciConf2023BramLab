@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(ggplot2)
+library(ggpubr)
 
 
 selfreport <- read.csv("selfreport.csv")
@@ -220,83 +221,9 @@ for (i in 1:nrow(selfreport))
   ent_alt<- -sum(post_alt * log2(post_alt), na.rm=T)
   
   selfreport$eig1[i] <- prior_entropy - marg*(selfreport$entropy[i]) - (1-marg) * ent_alt
-
 }  
 ```
 
 ```{r}
-#Building the mean/sd data frame 
-
-cert <- c()
-rule <- c()
-cond <- c()
-
-j = 0 #counter for the test number within a given trial
-i = 1 
-
-while(i <= nrow(selfreport)){
-  j = j + 1
-
-  #If this is the test in which certainty has been reached, append the information to our new dataframe and jump to the next trial
-  
-  if(selfreport$prior_entropy[i] == 0){ 
-    cert <- append(cert, selfreport$test[i])
-    rule <- append(rule, selfreport$rule_nr[i])
-    cond <- append(cond, selfreport$condition[i])
-    i <- i + 8 - j
-    j <- 0
-  }
-  
-  #Otherwise, if we reach the end of the trial without ever reaching certainty, do this 
-  #(I assumed assigning -1, but perhaps a better solution is in order)
-  
-  else if(j == 8){
-    cert <- append(cert, -1)
-    rule <- append(rule, selfreport$rule_nr[i])
-    cond <- append(cond, selfreport$condition[i])
-    j <- 0
-  }
-  
-  i <- i + 1
-}
-
-df <- data.frame(cert, rule, cond)
-```
-
-```{r}
-ggplot(data = df, aes(x = cond, y = cert))+
-  stat_summary(fun.data=mean_sdl, geom="bar", color = "black", position = position_dodge(width = 0.95))+
-  stat_summary(fun.data=mean_cl_boot, geom = "errorbar", color = "gray", position = position_dodge(width = 0.95), width = 0.3)+
-  scale_fill_manual(values = c("#000000", "#ffffff"))+
-  labs(title = "Effect of Condition on Reaching Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty")+
-  theme_minimal()+
-  theme(axis.title = element_text(size = 15))
-```
-
-```{r}
-ggplot(data = df, aes(x = reorder(rule, +cert), y = cert))+
-  stat_summary(fun.data=mean_sdl, geom="bar", color = "black", position = position_dodge(width = 0.95))+
-  stat_summary(fun.data=mean_cl_boot, geom = "errorbar", color = "gray", position = position_dodge(width = 0.95), width = 0.3)+
-  scale_fill_manual(values = c("#000000", "#ffffff"))+
-  labs(title = "Effect of Rule on Reaching Certainty" , x = "Rule", y = "Nr. of Trials to Reach Certainty")+
-  theme_minimal()+
-  theme(axis.title = element_text(size = 15))
-```
-
-```{r}
-df_stats <- df %>% 
-    group_by(cond, rule) %>%
-    summarise(
-        Avg_Cert = mean(cert), 
-        SE = sd(cert) / sqrt(n())
-    )
-
-ggplot(data = df_stats, aes(x = cond, y = Avg_Cert, color = rule)) +
-    geom_point(size = 3) +
-    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE)) + 
-    geom_line(aes(x = as.numeric(cond)), size = 1.2)+
-    labs(title = "Interaction Between Condition and Rule" , x = "Condition", y = "Nr. of Trials to Reach Certainty")+
-    theme(panel.background = element_blank(),    panel.grid.major = element_line(color = "#DAE1E7"),
-    panel.grid.major.x = element_blank())
-
+save(file='./zendo.rdata', selfreport)
 ```
