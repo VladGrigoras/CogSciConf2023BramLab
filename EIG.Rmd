@@ -14,7 +14,6 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr)
 
-
 selfreport <- read.csv("selfreport.csv")
 tests <- read.csv("tests.csv")
 #Experiment mentions that "rocks of an exact colour OR shape must be present for radiation"
@@ -221,6 +220,8 @@ for (i in 1:nrow(selfreport))
   ent_alt<- -sum(post_alt * log2(post_alt), na.rm=T)
   
   selfreport$eig1[i] <- prior_entropy - marg*(selfreport$entropy[i]) - (1-marg) * ent_alt
+  selfreport$eig2[i]<- marg*selfreport$information[i] + (1-marg)*(prior_entropy - ent_alt)
+
 }  
 ```
 

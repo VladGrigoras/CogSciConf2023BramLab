@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(ggplot2)
 library(ggpubr)
+library(dplyr)
 
 load("./zendo.rdata")
 ```
@@ -37,7 +38,7 @@ while(i <= nrow(selfreport)){
 
   #If this is the test in which certainty has been reached, append the information to our new dataframe and jump to the next trial
   
-  if(selfreport$prior_entropy[i] == 0){ 
+  if(selfreport$entropy[i] == 0){ 
     cert <- append(cert, selfreport$test[i])            #What test they reached certainty on
     rule <- append(rule, selfreport$rule_nr[i])         #What the rule number is
     ruletype <- append(ruletype, selfreport$rule_re[i]) #What the rule type is
@@ -54,7 +55,7 @@ while(i <= nrow(selfreport)){
   }
   
   #Otherwise, if we reach the end of the trial without ever reaching certainty, do this 
-  #(I assumed assigning 8, but perhaps we will find a better solution later)
+  #(I assumed assigning 9, but perhaps we will find a better solution later)
   
   else if(j == 8){
     cert <- append(cert, 9)
@@ -127,7 +128,7 @@ df_stats <- df %>%
 
 ggplot(data = df_stats, aes(x = cond, y = Avg_Cert, colour = ruletype)) +
     geom_point(size = 3) +
-    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
     geom_line(aes(x = as.numeric(cond)), size = 1.2)+
     labs(title = "Interaction Between Rule Type, Condition and Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty", colour = "Type of Rule")+
     theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"),
@@ -144,7 +145,7 @@ df_stats1 <- df %>%
 
 ggplot(data = df_stats1, aes(x = cond, y = Avg_Cert, colour = rulecount)) +
     geom_point(size = 3) +
-    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
     geom_line(aes(x = as.numeric(cond)), size = 1.2)+
     labs(title = "Interaction Between Rock Number in a Rule, Condition and Certainty" , x = "Condition", y = "Nr. of Trials to Reach Certainty", colour = "Nr. of Rocks in the Rule")+
     theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"), 
@@ -161,7 +162,7 @@ df_stats2<- df %>%
 
 ggplot(data = df_stats2, aes(x = rulecount, y = Avg_Cert, colour = ruletype)) +
     geom_point(size = 3) +
-    #geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
+    geom_linerange(aes(ymin = Avg_Cert - 2 * SE, ymax = Avg_Cert + 2 * SE), size = 1) + 
     geom_line(aes(x = as.numeric(rulecount)), size = 1.2)+
     labs(title = "Interaction Between Rock Number in a Rule, Condition and Certainty" , x = "Nr. of Rocks in the Rule", y = "Nr. of Trials to Reach Certainty", colour = "Rule Type")+
     theme(panel.background = element_blank(), panel.grid.major = element_line(color = "#DAE1E7"), 
@@ -188,45 +189,55 @@ ggplot(data = df_stats3, aes(x = cond, y = Avg_Cert, colour = rule)) +
 ```{r}
 #Timegrowth of certainty proportion
 
+library(caTools)
+
 #First, create a dummy dataframe with the percentage of certaint trials for each number of tests bin 
 df$cert <- as.factor(df$cert)
-summary(df$cert)
+ss <- unname(summary(df$cert))
 
-df %>% count(cond,cert)
+agg_df <- aggregate(df$cond, by=list(df$cert,df$cond), FUN=length, drop = FALSE)
+agg_df[is.na(agg_df)] <-0
 
+perc <- c()
 #All conditions
-c <- c(0,189,58,25,11,2,3,15)
-round(c/sum(c),3) * 100
+c <- append(0,unname(summary(df$cert)))
+perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 1
-c <- c(0,65,23,9,4,1,1,8)
-round(c/sum(c),3) * 100
+c <- append(0,agg_df[1:8,3])
+perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 2
-c <- c(0,65,16,7,5,1,2,6)
-round(c/sum(c),3) * 100
+c <- append(0,agg_df[9:16,3])
+perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 3
-c <- c(0,59,19,9,2,0,0,1)
-round(c/sum(c),3) * 100
+c <- append(0,agg_df[17:24,3])
+perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
-d <- c(0, 62.4, 81.5, 89.8, 93.4, 94.1, 95.1, 
-       0, 58.6, 79.3, 87.4, 91, 91.9, 92.8, 
-       0, 63.7, 79.4, 86.3, 91.2, 92.2, 94.2, 
-       0, 65.6, 86.7, 96.7, 98.9, 98.9, 98.9)
 
-condition <- c("all","all", "all", "all", "all", "all", "all", "1", "1","1","1","1","1","1","2","2","2","2","2","2","2","3","3","3","3","3","3","3")
-test <- c(1:7, 1:7, 1:7, 1:7)
+condition <- c(rep("all",9), rep("1", 9), rep("2",9), rep("3",9))
+test <- c(0:8, 0:8, 0:8, 0:8)
 
-dum <- data.frame(test, d, condition)
+dum <- data.frame(test, perc, condition)
 
 #Note, 5% of all trials never reached certainty 
 ```
 
 ```{r}
-ggplot(dum, aes(x = test, y = d, color = condition))+
+v <- c(2:8, 11:17, 20:26, 29:35)
+dum <- dum %>%  filter(!row_number() %in% c(1, 9, 10, 18, 19, 27, 28, 36))
+ggplot(dum, aes(x = test, y = perc, color = condition))+
   geom_point()+
   geom_line(size = 1.2)+
   labs(title = "Perecentage of Trials Reaching Certainty Over Number of Tests", y = "Percentage of Trials that Have Reached Certainty")+
   scale_x_continuous(breaks = c(1:7), name = "Test Number")
+
+#move plot 1 test back 
 ```
+
+- Break down by the objects in rule condition
+- Get some error bars going, run anova/regression, provide p-values 
+- Draft for Results section
+  - Explain maths behind EIG
+  - Breakdown of bulletpoints with attached code
