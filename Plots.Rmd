@@ -21,7 +21,7 @@ load("./zendo.rdata")
 
 
 ```{r}
-#Building the mean/sd data frame 
+#Building the trail only data frame 
 
 cert <- c()
 rule <- c()
@@ -29,6 +29,7 @@ cond <- c()
 reach <- c()
 ruletype <- c()
 rulecount <- c()
+id <- c()
 
 j = 0 #counter for the test number within a given trial
 i = 1 
@@ -44,6 +45,7 @@ while(i <= nrow(selfreport)){
     ruletype <- append(ruletype, selfreport$rule_re[i]) #What the rule type is
     cond <- append(cond, selfreport$condition[i])       #What the condition is
     reach <- append(reach, "y")                         #Whether they did finally reach certainty
+    id <- append(id, selfreport$pid[i])                 #participant ID for random effects modelling
     
     #What the number of objects in the rule is
     if(selfreport$rule_nr[i] %in% c(1,4,7,10,13,16)) rulecount <- append(rulecount, 1)
@@ -63,6 +65,8 @@ while(i <= nrow(selfreport)){
     ruletype <- append(ruletype, selfreport$rule_re[i])
     cond <- append(cond, selfreport$condition[i])
     reach <- append(reach, "n")
+    id <- append(id, selfreport$pid[i])                
+
     
     if(selfreport$rule_nr[i] %in% c(1,4,7,10,13,16)) rulecount <- append(rulecount, 1)
     else if(selfreport$rule_nr[i] %in% c(2,5,8,11,14,17)) rulecount <- append(rulecount, 2)
@@ -73,8 +77,9 @@ while(i <= nrow(selfreport)){
   
   i <- i + 1
 }
-cert <- cert - 1
-df <- data.frame(cert, rule, cond, reach, ruletype, rulecount)
+cert <- cert - 1 #remove the example from the test count 
+
+df <- data.frame(cert, rule, cond, reach, ruletype, rulecount,id)
 df$rulecount <- as.factor(df$rulecount)
 df$ruletype <- as.factor(df$ruletype)
 ```
@@ -185,18 +190,56 @@ ggplot(data = df_stats3, aes(x = cond, y = Avg_Cert, colour = rule)) +
     panel.grid.major.x = element_blank())
 ```
 
+```{r}
+  #Timegrowth of certainty proportion
+  
+  #First, create a dummy dataframe with the percentage of certaint trials for each number of tests bin 
+  df$cert <- as.factor(df$cert)
+  
+  agg_df <- aggregate(df$cond, by=list(df$cert,df$cond), FUN=length, drop = FALSE)
+  agg_df[is.na(agg_df)] <-0
+  
+  perc <- c()
+  #All conditions
+  c <- append(0,unname(summary(df$cert)))
+  perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
+  
+  #Condition 1
+  c <- append(0,agg_df[1:8,3])
+  perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
+  
+  #Condition 2
+  c <- append(0,agg_df[9:16,3])
+  perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
+  
+  #Condition 3
+  c <- append(0,agg_df[17:24,3])
+  perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
+  
+  
+  condition <- c(rep("all",9), rep("1", 9), rep("2",9), rep("3",9))
+  test <- c(0:8, 0:8, 0:8, 0:8)
+  
+  dum <- data.frame(test, perc, condition)
+  
+  #Note, 5% of all trials never reached certainty 
+```
 
 ```{r}
-#Timegrowth of certainty proportion
+dum <- dum %>%  filter(!row_number() %in% c(1, 9, 10, 18, 19, 27, 28, 36)) #remove example and the ones that did not reach certainty
 
-library(caTools)
+ggplot(dum, aes(x = test, y = perc, color = condition))+
+  geom_point()+
+  geom_line(size = 1.2)+
+  labs(title = "Perecentage of Trials Reaching Certainty Over Number of Tests", y = "Percentage of Trials that Have Reached Certainty", colour = "Research Condition")+
+  scale_x_continuous(breaks = c(1:7), name = "Test Number")
+```
 
-#First, create a dummy dataframe with the percentage of certaint trials for each number of tests bin 
-df$cert <- as.factor(df$cert)
-ss <- unname(summary(df$cert))
+```{r}
+#Repeat, but for condition 2 (object number in the rule)
 
-agg_df <- aggregate(df$cond, by=list(df$cert,df$cond), FUN=length, drop = FALSE)
-agg_df[is.na(agg_df)] <-0
+agg_df2 <- aggregate(df$rulecount, by=list(df$cert,df$rulecount), FUN=length, drop = FALSE)
+agg_df2[is.na(agg_df2)] <- 0
 
 perc <- c()
 #All conditions
@@ -204,39 +247,47 @@ c <- append(0,unname(summary(df$cert)))
 perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 1
-c <- append(0,agg_df[1:8,3])
+c <- append(0,agg_df2[1:8,3])
 perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 2
-c <- append(0,agg_df[9:16,3])
+c <- append(0,agg_df2[9:16,3])
 perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 #Condition 3
-c <- append(0,agg_df[17:24,3])
+c <- append(0,agg_df2[17:24,3])
 perc <- append(perc,cumsum(round(c/sum(c),3) * 100))
 
 
 condition <- c(rep("all",9), rep("1", 9), rep("2",9), rep("3",9))
 test <- c(0:8, 0:8, 0:8, 0:8)
 
-dum <- data.frame(test, perc, condition)
-
-#Note, 5% of all trials never reached certainty 
+dum2 <- data.frame(test, perc, condition)
 ```
 
 ```{r}
-v <- c(2:8, 11:17, 20:26, 29:35)
-dum <- dum %>%  filter(!row_number() %in% c(1, 9, 10, 18, 19, 27, 28, 36))
-ggplot(dum, aes(x = test, y = perc, color = condition))+
+dum2 <- dum2 %>%  filter(!row_number() %in% c(1, 9, 10, 18, 19, 27, 28, 36)) #remove example and the ones that did not reach certainty
+
+ggplot(dum2, aes(x = test, y = perc, color = condition))+
   geom_point()+
   geom_line(size = 1.2)+
-  labs(title = "Perecentage of Trials Reaching Certainty Over Number of Tests", y = "Percentage of Trials that Have Reached Certainty")+
+  labs(title = "Perecentage of Trials Reaching Certainty Over Number of Tests", y = "Percentage of Trials that Have Reached Certainty", colour = "Number of Objects")+
   scale_x_continuous(breaks = c(1:7), name = "Test Number")
-
-#move plot 1 test back 
 ```
 
-- Break down by the objects in rule condition
+```{r}
+#Model Analysis, 2x2 ANOVA with the 2 research condition as IV and the nr of tests to reach certainty as DV 
+
+library(lmerTest)
+
+contrasts(df$cond) <- "contr.sum"
+contrasts(df$rulecount) <- "contr.sum"
+
+mdl1 <- lmer(as.numeric(cert) ~ cond + rulecount + (1 | id), data = df)
+summary(mdl1)
+
+```
+
 - Get some error bars going, run anova/regression, provide p-values 
 - Draft for Results section
   - Explain maths behind EIG
